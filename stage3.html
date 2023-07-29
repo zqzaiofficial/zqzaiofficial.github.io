@@ -36,7 +36,7 @@
             <h1>The script.</h1>
             <p class="crimson">// indicates comment.</p>
             <pre class="codeBlock">import { world } from '@minecraft/server';
-                
+
 world.afterEvents.chatSend.subscribe(data => {
     if (data.message == "Hello ScriptAPI") {
         var author = data.sender;

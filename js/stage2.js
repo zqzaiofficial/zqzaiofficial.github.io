@@ -88,3 +88,51 @@ npm i @minecraft/server@1.4.0-beta.1.20.12`
         }, 3000);
       }
 }, false);
+
+var copyButton3 = document.getElementById("copyButton3");
+copyButton3.addEventListener("click", function() {
+    try {
+        var copyText = `import { world, system } from '@minecraft/server';
+        
+world.afterEvents.chatSend.subscribe(data => {
+    var localPlayer = data.sender;
+    var message = data.message;
+                    
+    if (message == ".fix") {
+        localPlayer.addTag("fixItems");
+        data.cancel = true;
+    }
+});
+
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        if (player.hasTag("fixItems")) {
+            player.removeTag("fixItems")
+
+            var inventory = player.getComponent('minecraft:inventory').container;
+            for (var i = 0; i < 36; i++) {
+                try {
+                    var item = inventory.getItem(i);
+                    var durability = item.getComponent("minecraft:durability");
+                    durability.damage = 0;
+                    inventory.setItem(i, item);
+                } catch { }
+            }
+
+            player.sendMessage("[Script API]: All your items have been repaired.");
+        }
+    }
+})`
+        navigator.clipboard.writeText(copyText);
+        copyButton3.textContent = "Copied!";
+        setTimeout(function() {
+            copyButton3.textContent = "Copy";
+        }, 3000);
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+        copyButton3.textContent = "Failed to copy :(";
+        setTimeout(function() {
+            copyButton3.textContent = "Copy";
+        }, 3000);
+      }
+}, false);

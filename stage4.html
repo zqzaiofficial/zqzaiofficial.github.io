@@ -26,10 +26,12 @@
         </div>
 
         <div class="card">
-            <h1>Examples of utilising components</h1>
+            <h1>Examples of utilising components.</h1>
             <p>To maximise our understanding, let's make a simple script that will repair a player's item when they send '.repair' in chat.</p>
             <br>
-            <pre class="codeBlock" id="reduceSizeBlock">world.afterEvents.chatSend.subscribe(data => {
+            <pre class="codeBlock" id="reduceSizeBlock">import { world, system } from '@minecraft/server';
+
+world.afterEvents.chatSend.subscribe(data => {
     var localPlayer = data.sender;
     var message = data.message;
             
@@ -58,20 +60,24 @@ system.runInterval(() => {
         }
     }
 })      </pre>
-    
+
+        <button class="copyBtn" id="copyButton3">Copy</button>
+
         </div>
 
         <div class="card">
-            <h1>Explaining the script.</h1>
-            <p>Let's break down the script we just wrote.</p>
+            <h1>What did we just do?</h1>
+            <p>First we subscribed to the <span class="inlineCode">chatSend</span> event. This event is fired when a player sends a message in chat.</p>
             <br>
-            <p>First, we import the <span class="inlineCode">world</span> from the <span class="inlineCode">@minecraft/server</span> package.</p>
+            <p>Then we check if the message is <span class="inlineCode">.fix</span>. If it is, we add a tag to the player called <span class="inlineCode">fixItems</span> and cancel the event.</p>
             <br>
-            <p>Next, we use the <span class="inlineCode">world.afterEvents.chatSend.subscribe()</span> function to subscribe to the <span class="inlineCode">chatSend</span> event. This function takes a callback function as a parameter, which is called when the event is fired.</p>
+            <p>Then we run an interval that runs every tick. This interval checks if the player has the tag <span class="inlineCode">fixItems</span>. If they do, we remove the tag and repair all their items.</p>
             <br>
-            <p>Inside the callback function, we check if the message sent is equal to "Hello ScriptAPI". If it is, we get the sender of the message and send them a message.</p>
+            <p>First we get the player's inventory. Then we loop through all the slots in the inventory. We try to get the item in the slot. If we can't, we skip the slot.</p>
             <br>
-            <p>Now that we have our script, we can run it!</p>
+            <p>Then we get the item's durability component and set the damage to 0. Then we set the item in the slot to the item we just modified.</p>
+            <br>
+            <p>Finally we send a message to the player saying that their items have been repaired.</p>
         </div>
     </div>
     <a id="nextBtn" href="./stage2.html">Back</a>
