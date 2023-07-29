@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/start.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script defer src="./js/stage2.js"></script>
+</head>
+<body>
+    <div id="progressCard">
+        <h1>Stage 2/9</h1>
+        <h2>Creating a behavior pack.</h2>
+    </div>
+
+    <div id="content">
+        <div class="card">
+            <h1>How do we start making our behavior pack?</h1>
+            <p>To start making our behavior pack, we need to create a new folder. We can name this folder anything we want, but for this tutorial, we will name it "TutorialBP".</p>
+            <br>
+            <p>After creating the folder, we need to create a new file called "manifest.json". This file will tell Minecraft what our behavior pack is called, what version it is, and more.</p>
+            <br>
+            <p>First, we need a UUID. A UUID is a unique identifier that is used to identify our behavior pack. We can use <a href="https://www.uuidgenerator.net/" target="_blank">this website</a> to generate a UUID.</p>
+            <br>
+            <p>Next, copy and paste the following code into your manifest.json file, editting the values to your liking.</p>
+            <br>
+            <pre class="codeBlock" id="manifestText">{
+    "format_version": 2,
+    "header": {
+        "name": "Your Behavior Pack Name",
+        "description": "Your Behavior Pack Description",
+        "uuid": "Your UUID",
+        "version": [
+            1,
+            1,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            18,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "Your UUID",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "entry": "scripts/index.js",
+            "uuid": "Your UUID",
+            "version": "1.4.0-beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "Your Name"
+        ]
+    },
+    "dependencies": [
+        {
+            "description": "@minecraft/server module dependency",
+            "module_name": "@minecraft/server",
+            "version": "1.4.0-beta"
+        },
+        {
+            "description": "@minecraft/server-ui module dependency",
+            "module_name": "@minecraft/server-ui",
+            "version": "1.2.0-beta"
+        }
+    ]
+}</pre>
+        <button class="copyBtn" id="copyButton1">Copy</button>
+        </div>
+
+        <div class="card">
+            <h1>What next?</h1>
+            <p>Now that we have created our behavior pack manifest, Minecraft will recognize our behavior pack. However, we still need to add some code to our behavior pack.</p>
+            <br>
+            <p>So, let's create a new folder called "scripts". Inside of this folder, we will create a new file called "index.js". This file will contain all of our code.</p>
+            <br>
+            <p>This is our current file structure:</p>
+            <pre class="codeBlock">TutorialBP
+├── manifest.json
+└── scripts
+    └── index.js</pre>
+        </div>
+
+        <div class="card">
+            <h1>Installing our packages.</h1>
+            <p>Now that we have our file structure, we need to install the VS Code Package. This will allow us to have code completion like this:</p>
+            <img src="./img/codeCompletion.png" alt="Code Completion">
+            <br>
+            <p>To install the VS Code Package, we need to open a terminal. To do this, press these keys on your keyboard: <span class="inlineCode">Ctrl + Shift + '</span>.</p>
+            <br>
+            <p>After opening the terminal, we need to run the following commands:</p>
+            <pre class="codeBlock">npm i @minecraft/server
+npm i @minecraft/server-gametest
+npm i @minecraft/server-ui</pre>
+            <br>
+            <p>After running these commands, we should see a new folder called "node_modules". This folder contains all of our packages and means that we have successfully installed our packages.</p>
+            <button class="copyBtn" id="copyButton2">Copy</button>
+        </div>
+    </div>
+    <a id="nextBtn" href="./stage3.html">Next</a>
+    <a id="nextBtn" href="./index.html">Back</a>
+</body>
+</html>

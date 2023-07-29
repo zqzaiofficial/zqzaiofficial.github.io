@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    background-color: #1b1f22;
+}
+
+#progressCard {
+    margin: auto;
+    width: 75%;
+    max-width: 350px;
+    margin-top: 2%;
+    padding: 10px;
+    background-color: #2f3136;
+    border-style: solid;
+    border-color: #575b60;
+    border-radius: 10px;
+    border-width: 1px;
+    text-align: center;
+}
+
+#progressCard h1 {
+    font-size: 1.5rem;
+}
+
+#progressCard h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#content {
+    margin: auto;
+    width: 100%;
+    max-width: 750px;
+    padding: 10px;
+    text-align: center;
+}
+
+#content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+#reduceSizeBlock {
+    font-size: 0.7vw;
+}
+
+#content p {
+    color: #e8dcdc;
+}
+
+.card {
+    margin: auto;
+    width: 100%;
+    max-width: 750px;
+    margin-top: 5%;
+    padding: 25px 25px;
+    background-color: #2f3136;
+    border-style: solid;
+    border-color: #575b60;
+    border-radius: 10px;
+    border-width: 1px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.card a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #00bfff;
+    transition: 0.2s;
+}   
+
+.card a:hover {
+    color: #00a3ff;
+}
+
+.codeBlock {
+    margin: auto;
+    width: 100%;
+    max-width: 750px;
+    margin-top: 5%;
+    padding: 25px 25px;
+    background-color: #1f2023;
+    border-style: solid;
+    border-color: #575b60;
+    border-radius: 10px;
+    border-width: 1px;
+    text-align: left;
+    transition: 0.2s;
+    font-family: 'Source Code Pro', monospace;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 0.8vw;
+}
+
+.inlineCode {
+    background-color: #1f2023;
+    border-style: solid;
+    border-color: #575b60;
+    border-radius: 5px;
+    border-width: 1px;
+    padding: 2px 5px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.8vw;
+}
+
+.copyBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #575b60;
+    border-width: 1px;
+    background-color: #2f3136;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.2s;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+.copyBtn:hover {
+    background-color: #3a3d41;
+}
+
+img {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #575b60;
+    border-width: 1px;
+    margin-top: 10px;
+    width: 75%;
+    height: auto;
+}
+
+#nextBtn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #575b60;
+    border-width: 1px;
+    background-color: #2f3136;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.2s;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+#nextBtn:hover {
+    background-color: #3a3d41;
+}
+
+.card:hover {
+    scale: 1.05;
+}
+
+.crimson {
+    color: crimson !important;
+}

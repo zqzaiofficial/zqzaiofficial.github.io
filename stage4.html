@@ -1,0 +1,80 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/start.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="progressCard">
+        <h1>Stage 4/9</h1>
+        <h2>Utilising components!</h2>
+    </div>
+
+    <div id="content">
+        <div class="card">
+            <h1>What are components?</h1>
+            <p>Components are like 'classes' for entities, blocks and items. They allow you to add extra functionality to your entities, blocks and items.</p>
+            <br>
+            <p>For instance a component of the player is <span class="inlineCode">minecraft:health</span>. This component allows you to get and set the health of the player.</p>
+        </div>
+
+        <div class="card">
+            <h1>Examples of utilising components</h1>
+            <p>To maximise our understanding, let's make a simple script that will repair a player's item when they send '.repair' in chat.</p>
+            <br>
+            <pre class="codeBlock" id="reduceSizeBlock">world.afterEvents.chatSend.subscribe(data => {
+    var localPlayer = data.sender;
+    var message = data.message;
+            
+    if (message == ".fix") {
+        localPlayer.addTag("fixItems");
+        data.cancel = true;
+    }
+});
+
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        if (player.hasTag("fixItems")) {
+            player.removeTag("fixItems")
+
+            var inventory = player.getComponent('minecraft:inventory').container;
+            for (var i = 0; i < 36; i++) {
+                try {
+                    var item = inventory.getItem(i);
+                    var durability = item.getComponent("minecraft:durability");
+                    durability.damage = 0;
+                    inventory.setItem(i, item);
+                } catch { }
+            }
+
+            player.sendMessage("[Script API]: All your items have been repaired.");
+        }
+    }
+})      </pre>
+    
+        </div>
+
+        <div class="card">
+            <h1>Explaining the script.</h1>
+            <p>Let's break down the script we just wrote.</p>
+            <br>
+            <p>First, we import the <span class="inlineCode">world</span> from the <span class="inlineCode">@minecraft/server</span> package.</p>
+            <br>
+            <p>Next, we use the <span class="inlineCode">world.afterEvents.chatSend.subscribe()</span> function to subscribe to the <span class="inlineCode">chatSend</span> event. This function takes a callback function as a parameter, which is called when the event is fired.</p>
+            <br>
+            <p>Inside the callback function, we check if the message sent is equal to "Hello ScriptAPI". If it is, we get the sender of the message and send them a message.</p>
+            <br>
+            <p>Now that we have our script, we can run it!</p>
+        </div>
+    </div>
+    <a id="nextBtn" href="./stage2.html">Back</a>
+    <a id="nextBtn" href="">Coming soon...</a>
+</body>
+</html>
